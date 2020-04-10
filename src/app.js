@@ -16,16 +16,16 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 
-app.use('/expenses', expensesRouter);
-app.use('/users', usersRouter);
-app.use('/auth', authRouter);
+app.use('/api/expenses', expensesRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
 
 
 
 app.get('/', (req, res) => {
  res.send('Hello, world!')
 })
-app.get('/users/test123', (req, res) => {
+app.get('/api/users/test123', (req, res) => {
   res.send('Please Log in')
  })
 
