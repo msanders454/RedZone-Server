@@ -5,7 +5,6 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const app = express()
-const jsonParser = express.json()
 const expensesRouter = require('./expensesRouter/expensesRouter');
 const usersRouter = require('./usersRouter/usersRouter');
 const authRouter = require('./authRouter/authRouter');
