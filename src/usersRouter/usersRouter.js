@@ -13,7 +13,6 @@ usersRouter
        })
 usersRouter 
     .route('/')
-    console.log('worked')
     .get((req, res, next) => {
         const knexInstance = req.app.get('db')
         userService.getAllUsers(knexInstance)
