@@ -1,26 +1,58 @@
-# Express Boilerplate!
 
-This is a boilerplate project used for starting new projects!
 
-## Set up
+## THe RedZone
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+“Remember to avoid the RedZone”
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+### `The Idea`
 
-## Scripts
+When life gets complicated, sometimes when overspend our budget without realizing. Days later we find out that we are out of money for groceries. The Horror. This app allows users to create a budget and find out if they are in the danger zone. Well, we like to call it the RedZone
 
-Start the application `npm start`
+Users will create an account and set up thier budget amount. They can then add expenses to their account and if they enter the danger zone, they will be notified. Remember to avoid the RedZone. This app will help users see exactly where they are on their budget and figure out how much they are spending on an item.
 
-Start nodemon for the application `npm run dev`
+### Demo
 
-Run the tests `npm test`
+[Live Page](red-zone-client.now.sh)
 
-## Deploying
+### Demo Log in
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+Live Page
+- username Demo123
+
+- password Demo123@
+
+Feel free to also create an account if you like.
+
+### Client-side code
+
+[Client-side code](https://github.com/msanders454/Red-Zone-Client)
+
+### `Screen Shots`
+
+![Login Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Loginpage.png)
+![Expense List Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Expenselist.PNG)
+![Add Expense Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/AddExpense.PNG)
+![Statistics/ RedZone Alert Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Statistics.PNG)
+
+### Tech Stack
+
+**Front-End**
+
+- HTML
+- CSS
+- JavaScript
+- jQuery
+
+**Back-End**
+
+- Node.js
+- Express.js
+- Postgres
+- Mongoose
+- Mocha + Chai
+
+**Others**
+
+- Github
+- Heroku
+
