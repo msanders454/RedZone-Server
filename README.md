@@ -16,13 +16,6 @@ Users will create an account and set up thier budget amount. They can then add e
 
 ### Demo Log in
 
-Live Page
-- username Demo123
-
-- password Demo123@
-
-Feel free to also create an account if you like.
-
 ### Client-side code
 
 [Client-side code](https://github.com/msanders454/Red-Zone-Client)
@@ -32,7 +25,63 @@ Feel free to also create an account if you like.
 ![Login Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Loginpage.png)
 ![Expense List Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Expenselist.PNG)
 ![Add Expense Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/AddExpense.PNG)
-![Statistics/ RedZone Alert Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Statistics.PNG)
+![Statistics/ RedZone Alert Page](https://github.com/msanders454/Red-Zone-Client/blob/msaster/src/Images/Statistics.PNG)
+
+
+###Endpoints
+
+This api is used to store user account information as well a expense information.
+
+##users
+- POST /api/users
+Verifies 4 inputs (password, user_name, full_name, red_zone_amount) and creates a new user
+
+- GET /api/users/:user_name
+Returns an array with only user_name's data.
+
+- DELETE /api/users/:user_name
+Deleted the array with only user_name's data.
+
+- PATCH /api/users/:user_name
+Updates the array with only user_name's data.
+
+- PATCH /api/users/:user_id
+Updates the red zone amount only in user_id's data.
+
+
+
+##expenses
+- GET /api/expenses
+Returns an array with of expense entries.
+
+- POST /api/expenses
+Adds a new expense entry to the database.
+
+- GET /api/expenses/:expense_id
+Returns an array with only expense_id's data.
+
+- DELETE /api/expenses/:expense_id
+Deletes the array with only expense_id's data
+
+- PATCH /api/expenses/:expense_id
+Updates the array with only expense_id's data.
+
+- GET /api/expenses/:expense_usernumber
+Returns an array with only expense_usernumber's data.
+
+- DELETE /api/expenses/:expense_usernumber
+Deletes the array with only expense_id's data
+
+- PATCH /api/expenses/:expense_usernumber
+Updates the array with only expense_usernumber's data.
+
+
+
+##auth
+- POST /api/auth
+Verifies input and creates a token key for an existing user.
+
+
 
 ### Tech Stack
 
