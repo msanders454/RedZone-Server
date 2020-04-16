@@ -25,14 +25,14 @@ Users will create an account and set up thier budget amount. They can then add e
 ![Login Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Loginpage.png)
 ![Expense List Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Expenselist.PNG)
 ![Add Expense Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/AddExpense.PNG)
-![Statistics/ RedZone Alert Page](https://github.com/msanders454/Red-Zone-Client/blob/msaster/src/Images/Statistics.PNG)
+![Statistics/ RedZone Alert Page](https://github.com/msanders454/Red-Zone-Client/blob/master/src/Images/Statistics.PNG)
 
 
-###Endpoints
+### Endpoints
 
 This api is used to store user account information as well a expense information.
 
-##users
+### users
 - POST /api/users
 Verifies 4 inputs (password, user_name, full_name, red_zone_amount) and creates a new user
 
@@ -50,7 +50,7 @@ Updates the red zone amount only in user_id's data.
 
 
 
-##expenses
+### expenses
 - GET /api/expenses
 Returns an array with of expense entries.
 
@@ -77,7 +77,7 @@ Updates the array with only expense_usernumber's data.
 
 
 
-##auth
+## #auth
 - POST /api/auth
 Verifies input and creates a token key for an existing user.
 
