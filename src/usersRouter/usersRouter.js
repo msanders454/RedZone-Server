@@ -6,13 +6,14 @@ const jsonParser = express.json();
 const xss = require('xss');
 
 
-usersRouter 
-    .route('/test123')
-    .get((req, res) => {
-        res.send('Please Log in')
-       })
+/*
+* Users Router. /api/users.
+*/ 
 usersRouter 
     .route('/')
+/*
+* Recieves all information for all users.
+*/ 
     .get((req, res, next) => {
         const knexInstance = req.app.get('db')
         userService.getAllUsers(knexInstance)
@@ -21,7 +22,9 @@ usersRouter
             })
             .catch(next)
     })
-
+/*
+*Adds new users.
+*/
     .post(jsonParser, (req, res, next) => {
 
         const { password, user_name, full_name, red_zone_amount} = req.body;
@@ -70,7 +73,9 @@ usersRouter
                })
                .catch(next)
        })
-   
+/*
+* Users Router. /api/users/:user_name.
+*/ 
    usersRouter
        .route('/:user_name')
        .all((req, res, next) => {
@@ -89,9 +94,15 @@ usersRouter
                })
                .catch(next)
        })
+/*
+* Recieves information for the specific user.
+*/ 
        .get((req, res, next) => {
            res.json(userService.serializeUser(res.user))
        })
+/*
+* Deletes information for the specific user.
+*/
        .delete((req, res, next) => {
         userService.deleteUser(
                req.app.get('db'),
@@ -102,6 +113,9 @@ usersRouter
                })
                .catch(next)
        })
+/*
+* Edits information for the specific user.
+*/
        .patch(jsonParser, (req, res, next) => {
            const { full_name, user_name, password,  } = req.body
            const userToUpdate = { full_name, user_name, password }
@@ -124,6 +138,10 @@ usersRouter
                })
                .catch(next)
        })
+/*
+* Users Router. /api/users/patch/:user_id
+* This route is just for patching users red zone amount
+*/
   usersRouter
        .route('/patch/:user_id')
        .all((req, res, next) => {

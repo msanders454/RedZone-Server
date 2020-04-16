@@ -16,18 +16,14 @@ const serializeExpense = expense => {
     usernumber: expense.usernumber,
     }
 };
-expensesRouter
-    .route('/user/0')
-    .get((req, res) => {
-        res.send({
-            amount: 0,
-            description: "You need to log back in",
-            date:" 2020-04-06",
-            style: "--",
-            })
-       })
+/*
+* Expenses Router. /api/expenses.
+*/ 
 expensesRouter
     .route('/')
+/*
+* Recieves all expeneses from all users.
+*/ 
     .get((req, res, next) => {
         const knexInstance = req.app.get('db');
         service.getAllExpenses(knexInstance)
@@ -36,6 +32,10 @@ expensesRouter
             })
             .catch(next)
     })
+/*
+* Add new expenses. Needs, amount, style description, date and usernumber. 
+*Usernumber is user's id which is a primary key.
+*/
     .post(jsonParser, (req, res, next) => {
         const { amount, style, description, date, usernumber } = req.body;
         const newExpense = { amount, style, description, date, usernumber }
@@ -58,6 +58,9 @@ expensesRouter
             })
         .catch(next)
     })
+/*
+* Expenses Router. /api/expenses/:expense_id
+*/ 
 expensesRouter
     .route('/:expense_id')
     .all((req, res, next) => {
@@ -78,9 +81,15 @@ expensesRouter
         })
         .catch(next)
     })
+/*
+* Recieves the expenese from specific expense id.
+*/ 
     .get((req, res, next) => {
         res.json(serializeExpense(res.expense))
     })
+/*
+* Deletes expeneses from specific expense id.
+*/ 
     .delete((req, res, next) => {
         service.deleteExpense(
             req.app.get('db'),
@@ -92,6 +101,9 @@ expensesRouter
             })
             .catch(next)
     })
+/*
+* Updates expeneses from specific expense id.
+*/ 
     .patch(jsonParser, (req, res, next) => {
         const { amount, style, description } = req.body;
         const expenseToUpdate = { amount, style, description }
@@ -115,6 +127,9 @@ expensesRouter
             })
             .catch(next)
     })
+/*
+* Expenses Router. /api/expenses/user/:expense_usernumber
+*/ 
 expensesRouter
     .route('/user/:expense_usernumber')
     .all((req, res, next) => {
@@ -135,9 +150,15 @@ expensesRouter
         })
         .catch(next)
     })
+/*
+* Recieves all expeneses from specific user.
+*/ 
     .get((req, res, next) => {
         res.json(res.expense.map(serializeExpense))
     })
+/*
+* Deletes expeneses from specific user.
+*/ 
     .delete((req, res, next) => {
         service.deleteExpense(
             req.app.get('db'),
@@ -149,6 +170,9 @@ expensesRouter
             })
             .catch(next)
     })
+/*
+* Updates expeneses from specific user.
+*/ 
     .patch(jsonParser, (req, res, next) => {
         const { amount, style, description } = req.body;
         const expenseToUpdate = { amount, style, description }
