@@ -28,7 +28,7 @@
     "helmet": "^3.21.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-secret": "^1.1.1",
-    "knex": "^0.20.13",
+    "knex": "^2.4.0",
     "mocha": "^7.1.0",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2",
